@@ -14,4 +14,10 @@ const md = `# hello
 func TestConvert(t *testing.T) {
 	res := md2html.ParseMarkdown(md)
 	fmt.Println(res.Render())
+
+	if len(res.Elements) != 2 {
+		t.Fatalf("Incorrect number of elements parsed, expected 2, got %d\n", len(res.Elements))
+	}
+
+	// TODO check tags that were generated
 }
